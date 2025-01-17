@@ -11,7 +11,7 @@ class Program
         
         Console.WriteLine("Digite o valor que deseja encontrar: ");
 
-        if (int.TryParse(Console.ReadLine(), out int number))
+        if (!int.TryParse(Console.ReadLine(), out int number))
             throw new ArgumentOutOfRangeException(nameof(number), "Valor inválido informado.");
         
         var binarySearchResponse = GetIndexOfNumberBinarySearch(number, numbers);
@@ -24,6 +24,7 @@ class Program
     /// <summary>
     /// Este algoritmo usa o tempo de execução O(log₂(n))
     /// </summary>
+    /// <example>Se uma lista possui 15 elementos vou precisar de no máximo O(log₂(15)) etapas, ou seja, 4 etapas</example>
     /// <param name="number">Número para buscar dentro do array</param>
     /// <param name="searchList">Lista para busca</param>
     /// <returns>Uma tupla (Qtd de etapas para encontrar o número, Index do número (caso não encontre, -1))</returns>
@@ -60,6 +61,7 @@ class Program
     /// <summary>
     /// Este algoritmo usa o tempo de execução O(n)
     /// </summary>
+    /// <example>Se uma lista possui 15 elementos vou precisar de no máximo O(15) etapas, ou seja, 15 etapas</example>
     /// <param name="number">Número para buscar dentro do array</param>
     /// <param name="searchList">Lista para busca</param>
     /// <returns>Uma tupla (Qtd de etapas para encontrar o número, Index do número (caso não encontre, -1))</returns>
